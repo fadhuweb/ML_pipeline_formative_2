@@ -1,2 +1,94 @@
-# ignore venv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# Environments
+.env
+.venv
+env/
 venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Data files (raw)
+data/raw/**/*.wav
+data/raw/**/*.mp3
+data/raw/**/*.jpg
+data/raw/**/*.png
+
+# Cache files
+*.cache
+*.pkl
+*.joblib
+
+# OS specific
+Thumbs.db
+.DS_Store
+
+# Local testing
+test_output/
+temp/
+*.log
+
+# Model artifacts (keep structure but ignore large files)
+models/trained/*.pkl
+models/trained/*.h5
+models/trained/*.pth
+
+# Results (generated during runs)
+results/visualizations/*.png
+results/visualizations/*.jpg
+results/metrics/*.json
+results/predictions/*.csv
+
+# Processed data (optional - uncomment to version control)
+# data/processed/*.csv
