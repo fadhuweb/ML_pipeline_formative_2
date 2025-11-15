@@ -189,8 +189,7 @@ source venv/bin/activate
 
 ## Team
 
-- Fadhl (fadhuweb)
-- Abubakar
+- Fadhlullah
 - Makuochi
 - Mugisha
 - Melissa
