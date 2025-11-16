@@ -33,13 +33,13 @@ voice_model = load_model(voice_model_path)
 face_scaler = joblib.load(face_scaler_path)
 face_label_encoder = joblib.load(face_label_encoder_path)
 feature_extractor = load_model(feature_extractor_path)
-print("✓ Models loaded successfully.\n")
+print("Models loaded successfully.\n")
 
 # ------------------------------
 # Load merged dataset
 # ------------------------------
 merged_df = pd.read_csv(merged_dataset_path)
-print(f"✓ Merged dataset loaded ({merged_df.shape[0]} rows, {merged_df.shape[1]} columns).")
+print(f"Merged dataset loaded ({merged_df.shape[0]} rows, {merged_df.shape[1]} columns).")
 
 # ------------------------------
 # Load authorized embeddings
@@ -103,29 +103,29 @@ def run_simulation(customer_id, face_path, voice_path):
     print("\n--- Step 1: Face Recognition ---")
     face_features = extract_face_features(face_path)
     if not is_face_authorized(face_features):
-        print("❌ Face not recognized. Access denied.")
+        print("Face not recognized. Access denied.")
         return False
-    print("✅ Face recognized successfully.")
+    print("Face recognized successfully.")
 
     # Voice Verification
     print("\n--- Step 2: Voice Verification ---")
     voice_features = extract_voice_features(voice_path)
     if not is_voice_authorized(voice_features):
-        print("❌ Voice verification failed. Access denied.")
+        print("Voice verification failed. Access denied.")
         return False
-    print("✅ Voice verified successfully.")
+    print("Voice verified successfully.")
 
     # Product Recommendation
     print("\n--- Step 3: Product Recommendation ---")
     sample_input_features = merged_df[merged_df['customer_id_new'] == customer_id]
     if sample_input_features.empty:
-        print(f"❌ No data found for customer_id_new='{customer_id}'")
+        print(f"No data found for customer_id_new='{customer_id}'")
         return False
     feature_columns = [col for col in sample_input_features.columns if col != 'customer_id_new']
     sample_input_features = sample_input_features.reindex(columns=feature_columns, fill_value=0)
     product_prediction = product_model.predict(sample_input_features)[0]
-    print(f"🎯 Recommended product: {product_prediction}")
-    print("✅ Transaction completed successfully!\n")
+    print(f"Recommended product: {product_prediction}")
+    print("Transaction completed successfully!\n")
     return True
 
 # ------------------------------

@@ -126,10 +126,10 @@ model.save('model.pkl', 'scaler.pkl', 'encoder.pkl')
 ## Data Flow
 
 ```
-Raw Data → Load & Preprocess → Extract Features → Save CSV
-                                                       ↓
+Raw Data -> Load & Preprocess -> Extract Features -> Save CSV
+                                                       |
                                                   Train Model
-                                                       ↓
+                                                       |
                                           Evaluate & Save Results
 ```
 

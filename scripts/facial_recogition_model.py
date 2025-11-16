@@ -48,7 +48,7 @@ y_encoded = label_encoder.fit_transform(y)
 
 for i, label in enumerate(label_encoder.classes_):
     count = np.sum(y_encoded == i)
-    print(f"  {label} → {i} ({count} samples)")
+    print(f"  {label}: {i} ({count} samples)")
 
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(
@@ -76,7 +76,7 @@ rf_model = RandomForestClassifier(
 )
 
 rf_model.fit(X_train_scaled, y_train)
-print("✓ Random Forest model trained successfully")
+print("Random Forest model trained successfully")
 
 # --- Training Evaluation ---
 y_train_pred = rf_model.predict(X_train_scaled)
@@ -103,16 +103,16 @@ os.makedirs(models_path, exist_ok=True)
 model_file = os.path.join(models_path, 'rf_face_recognition_model.pkl')
 with open(model_file, 'wb') as f:
     pickle.dump(rf_model, f)
-print(f"✓ Random Forest model saved: {model_file}")
+print(f"Random Forest model saved: {model_file}")
 
 # Save scaler
 scaler_file = os.path.join(models_path, 'face_scaler.pkl')
 with open(scaler_file, 'wb') as f:
     pickle.dump(scaler, f)
-print(f"✓ Scaler saved: {scaler_file}")
+print(f"Scaler saved: {scaler_file}")
 
 # Save label encoder
 encoder_file = os.path.join(models_path, 'face_label_encoder.pkl')
 with open(encoder_file, 'wb') as f:
     pickle.dump(label_encoder, f)
-print(f"✓ Label encoder saved: {encoder_file}")
+print(f"Label encoder saved: {encoder_file}")
